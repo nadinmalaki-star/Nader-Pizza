@@ -50,12 +50,12 @@ const MENU = {
     { id: "sl2", name: "سلطة خضار", desc: "خس، طماطم، خيار طازجة", price: 15, img: "images/salad-garden.jpg" }
   ],
   drinks: [
-    { id: "d1", name: "مياه صغير", desc: "زجاجة مياه صغيرة", price: 2, img: "images/water.jpg" },
-    { id: "d2", name: "مياه كبير", desc: "زجاجة مياه كبيرة", price: 3, img: "images/water.jpg" },
-    { id: "d3", name: "كولا لتر", desc: "زجاجة كولا كبيرة", price: 5, img: "images/cola.jpg" },
-    { id: "d4", name: "كولا صغير", desc: "علبة كولا صغيرة", price: 3, img: "images/cola.jpg" },
-    { id: "d5", name: "عصير صغير", desc: "كوب عصير صغير", price: 3, img: "images/orange-juice.jpg" },
-    { id: "d6", name: "عصير كبير", desc: "كوب عصير كبير", price: 6, img: "images/orange-juice.jpg" }
+    { id: "d1", name: "مياه صغير", desc: "زجاجة مياه صغيرة", price: 2, img: "images/water-small.jpg" },
+    { id: "d2", name: "مياه كبير", desc: "زجاجة مياه كبيرة", price: 3, img: "images/water-large.jpg" },
+    { id: "d3", name: "كولا لتر", desc: "زجاجة كولا كبيرة", price: 5, img: "images/cola-large.jpg" },
+    { id: "d4", name: "كولا صغير", desc: "علبة كولا صغيرة", price: 3, img: "images/cola-small.jpg" },
+    { id: "d5", name: "عصير صغير", desc: "عصير كابي صغير", price: 3, img: "images/juice-small.jpg" },
+    { id: "d6", name: "عصير كبير", desc: "عصير كابي كبير", price: 6, img: "images/juice-large.jpg" }
   ]
 };
 
@@ -101,6 +101,13 @@ const TRASH_ICON = `<svg viewBox="0 0 24 24"><path d="M6 7h12M9 7V4h6v3m-8 0 1 1
 
 // ==== عرض المنيو ====
 function priceBlock(item) {
+  if (item.unavailable) {
+    return `
+      <div class="menu-item-footer">
+        <span class="price price-muted">${item.price ? item.price + " " + CURRENCY : ""}</span>
+        <span class="unavailable-badge">${item.note || "غير متوفر حاليًا"}</span>
+      </div>`;
+  }
   if (item.sizes) {
     return `<div class="size-options">${item.sizes.map(s => `
       <button class="size-btn" data-id="${item.id}" data-size="${s.k}">
@@ -120,7 +127,7 @@ function renderMenu(category) {
 
   MENU[category].forEach(item => {
     const card = document.createElement("div");
-    card.className = "menu-item";
+    card.className = "menu-item" + (item.unavailable ? " menu-item--unavailable" : "");
     card.innerHTML = `
       <div class="menu-item-img"><img src="${item.img}" alt="${item.name}" loading="lazy"></div>
       <div class="menu-item-body">

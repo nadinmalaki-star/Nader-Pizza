@@ -128,13 +128,12 @@ ul { list-style: none; }
   gap: 10px;
 }
 .logo-mark {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  object-fit: cover;
+  width: 58px;
+  height: 58px;
+  border-radius: 10px;
+  object-fit: contain;
   flex-shrink: 0;
   background: var(--white);
-  border: 1px solid var(--border);
 }
 .logo-text {
   font-size: 1.35rem;
@@ -353,6 +352,19 @@ ul { list-style: none; }
   transition: background .2s;
 }
 .add-btn:hover { background: var(--primary); }
+
+/* Unavailable items */
+.menu-item--unavailable .menu-item-img img { filter: grayscale(60%); opacity: .55; }
+.price-muted { color: var(--gray); text-decoration: line-through; font-weight: 700; }
+.unavailable-badge {
+  background: var(--light-bg);
+  color: var(--gray);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: .8rem;
+  font-weight: 700;
+}
 
 /* Size options (pizza / fries) */
 .size-options {
