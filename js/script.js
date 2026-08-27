@@ -1,56 +1,53 @@
 // ==== إعدادات المطعم ====
-const RESTAURANT_WHATSAPP = "970599000000"; // غيّر الرقم ده برقم واتساب المطعم الفعلي (بالصيغة الدولية بدون +)
+const RESTAURANT_WHATSAPP = "970599377881";
 const CURRENCY = "₪";
 
 // ==== بيانات المنيو (حسب منيو المطعم الفعلي) ====
 const MENU = {
   pizza: [
-    { id: "p1", name: "بيتزا الجبنة", desc: "عجينة طازجة يوميًا مع جبنة موزاريلا", img: "images/pizza-cheese.jpg",
+    { id: "p1", name: "بيتزا الجبنة", desc: "عجينة طازجة يوميًا مع جبنة موزاريلا", img: "images/pizza-cheese-real.jpg",
       sizes: [{ k: "S", label: "صغيرة", price: 35 }, { k: "M", label: "وسط", price: 45 }, { k: "L", label: "كبيرة", price: 55 }] },
-    { id: "p2", name: "بيتزا ستيك بالجبنة", desc: "شرائح لحم، بصل، فلفل أخضر، فطر، موزاريلا", img: "images/pizza-pepperoni.jpg",
+    { id: "p2", name: "بيتزا ستيك بالجبنة", desc: "شرائح لحم، بصل، فلفل أخضر، فطر، موزاريلا", img: "images/pizza-steak-real.jpg",
       sizes: [{ k: "S", label: "صغيرة", price: 40 }, { k: "M", label: "وسط", price: 50 }, { k: "L", label: "كبيرة", price: 60 }] },
-    { id: "p3", name: "بيتزا كل شي", desc: "لحم مفروم، فطر، فلفل أحمر وأخضر، بصل، زيتون، موزاريلا", img: "images/pizza-margherita.jpg",
+    { id: "p3", name: "بيتزا كل شي", desc: "لحم مفروم، فطر، فلفل أحمر وأخضر، بصل، زيتون، موزاريلا", img: "images/pizza-works-real.jpg",
       sizes: [{ k: "S", label: "صغيرة", price: 40 }, { k: "M", label: "وسط", price: 50 }, { k: "L", label: "كبيرة", price: 60 }] },
-    { id: "p4", name: "بيتزا اللحوم الفاخرة", desc: "لحم مفروم، سلامي، بيبروني، شرائح لحم، موزاريلا", img: "images/pizza-supreme.jpg",
+    { id: "p4", name: "بيتزا اللحوم الفاخرة", desc: "لحم مفروم، سلامي، بيبروني، شرائح لحم، موزاريلا", img: "images/pizza-meat-real.jpg",
       sizes: [{ k: "S", label: "صغيرة", price: 50 }, { k: "M", label: "وسط", price: 60 }, { k: "L", label: "كبيرة", price: 70 }] },
-    { id: "p5", name: "بيتزا محبي الخضار", desc: "فطر، بصل، طماطم، فلفل أحمر وأخضر، زيتون أسود وأخضر، ثوم، موزاريلا", img: "images/pizza-veggie.jpg",
+    { id: "p5", name: "بيتزا محبي الخضار", desc: "فطر، بصل، طماطم، فلفل أحمر وأخضر، زيتون أسود وأخضر، ثوم، موزاريلا", img: "images/pizza-veggie-real.jpg",
       sizes: [{ k: "S", label: "صغيرة", price: 40 }, { k: "M", label: "وسط", price: 50 }, { k: "L", label: "كبيرة", price: 60 }] },
-    { id: "p6", name: "بيتزا دجاج بالباربكيو", desc: "صدر دجاج مع صوص الباربكيو وموزاريلا", img: "images/burger-crispy-chicken.jpg",
+    { id: "p6", name: "بيتزا دجاج بالباربكيو", desc: "صدر دجاج مع صوص الباربكيو وموزاريلا", img: "images/pizza-bbq-real.jpg",
       sizes: [{ k: "S", label: "صغيرة", price: 40 }, { k: "M", label: "وسط", price: 50 }, { k: "L", label: "كبيرة", price: 60 }] },
-    { id: "p7", name: "بيتزا إيطاليانو", desc: "بيبروني، طماطم، ريحان، أوريغانو، موزاريلا", img: "images/pizza-bbq.jpg",
-      sizes: [{ k: "S", label: "صغيرة", price: 40 }, { k: "M", label: "وسط", price: 50 }, { k: "L", label: "كبيرة", price: 60 }] },
-    { id: "p8", name: "بيتزا هالبينو", desc: "بيبروني، فلفل أخضر، فطر، ريحان، هالبينو", img: "images/pizza-veggie.jpg",
-      sizes: [{ k: "S", label: "صغيرة", price: 45 }, { k: "M", label: "وسط", price: 55 }, { k: "L", label: "كبيرة", price: 65 }] }
+    { id: "p7", name: "بيتزا إيطاليانو", desc: "بيبروني، طماطم، ريحان، أوريغانو، موزاريلا", img: "images/pizza-italiano.jpg",
+      sizes: [{ k: "S", label: "صغيرة", price: 40 }, { k: "M", label: "وسط", price: 50 }, { k: "L", label: "كبيرة", price: 60 }] }
   ],
   extras: [
-    { id: "ex1", name: "أطراف محشوة جبنة", price: 20, img: "images/pizza-cheese.jpg" },
-    { id: "ex2", name: "إضافة لحوم", price: 10, img: "images/pizza-pepperoni.jpg" },
-    { id: "ex3", name: "إضافة دجاج", price: 10, img: "images/burger-crispy-chicken.jpg" }
+    { id: "ex1", name: "أطراف محشوة جبنة", price: 20, img: "images/pizza-cheese-real.jpg" },
+    { id: "ex2", name: "إضافة لحوم", price: 10, img: "images/pizza-meat-real.jpg" },
+    { id: "ex3", name: "إضافة دجاج", price: 10, img: "images/pizza-bbq-real.jpg" }
   ],
   sandwiches: [
-    { id: "sw1", name: "صدر دجاج مشوي", desc: "صدر دجاج مشوي طازج", price: 16, img: "images/sandwich-club.jpg" },
-    { id: "sw2", name: "برغر دجاج", desc: "برغر دجاج مقرمش", price: 14, img: "images/burger-crispy-chicken.jpg" },
-    { id: "sw3", name: "برغر لحم", desc: "برغر لحم بقري كلاسيكي", price: 17, img: "images/burger-beef.jpg" },
-    { id: "sw4", name: "برغر بالجبنة", desc: "برغر لحم مع طبقة جبنة", price: 18, img: "images/burger-beef.jpg" },
-    { id: "sw5", name: "برغر حار", desc: "برغر بصوص حار مميز", price: 18, img: "images/burger-beef.jpg" },
-    { id: "sw6", name: "برغر باربكيو مع مشروم", desc: "برغر بصوص الباربكيو والفطر", price: 18, img: "images/burger-beef.jpg" },
-    { id: "sw7", name: "مسحب دجاج", desc: "دجاج مسحّب طازج", price: 15, img: "images/sandwich-club.jpg" },
-    { id: "sw8", name: "مسحب دجاج بالجبنة", desc: "دجاج مسحّب مع طبقة جبنة", price: 15, img: "images/sandwich-club.jpg" },
-    { id: "sw9", name: "روست بيف بالجبنة", desc: "شرائح روست بيف مع الجبنة", price: 16, img: "images/burger-beef.jpg" },
-    { id: "sw10", name: "حبش بالجبنة", desc: "شرائح ديك رومي مع الجبنة", price: 14, img: "images/sandwich-club.jpg" },
-    { id: "sw11", name: "فيليه ستيك بالجبنة", desc: "فيليه ستيك مشوي مع الجبنة", price: 17, img: "images/burger-beef.jpg" }
+    { id: "sw1", name: "ساندويش دجاج مشوي (خبز الحبة الكاملة)", desc: "صدر دجاج مشوي على خبز القمح بالشوفان", price: 20, img: "images/sandwich-healthy-chicken.webp" },
+    { id: "sw2", name: "ساندويش دجاج مشوي", desc: "صدر دجاج مشوي طازج", price: 15, img: "images/sandwich-grilled-chicken.webp" },
+    { id: "sw3", name: "همبرغر", desc: "برغر لحم بقري كلاسيكي", price: 16, img: "images/burger-beef.jpg" },
+    { id: "sw4", name: "برغر بالجبنة", desc: "برغر لحم مع طبقة جبنة", price: 17, img: "images/burger-beef.jpg" },
+    { id: "sw5", name: "دجاج مسحب", desc: "دجاج مسحّب طازج", price: 12, img: "images/sandwich-shredded-chicken.jpg" },
+    { id: "sw6", name: "روست بيف بالجبنة", desc: "شرائح روست بيف مع الجبنة", price: 10, img: "images/sandwich-roastbeef.jpg" },
+    { id: "sw7", name: "ساندويتش البيتزا", desc: "خبز باجيت بصوص وجبنة البيتزا", price: 10, img: "images/sandwich-pizzamelt.jpg" },
+    { id: "sw8", name: "حبش بالجبنة", desc: "شرائح ديك رومي مع الجبنة", price: 9, img: "images/sandwich-turkey.jpg" },
+    { id: "sw9", name: "جبنة صفراء", desc: "جبنة صفراء على خبز باجيت", price: 6, img: "images/sandwich-cheese.jpg" }
   ],
   sides: [
-    { id: "s1", name: "بطاطس مقلية", desc: "بطاطس مقرمشة تُقدَّم ساخنة", img: "images/fries.jpg",
-      sizes: [{ k: "S", label: "صغير", price: 7 }, { k: "M", label: "وسط", price: 10 }, { k: "L", label: "كبير", price: 15 }] },
-    { id: "s2", name: "بطاطس بالجبنة", desc: "بطاطس مقرمشة مغطاة بالجبنة", price: 14, img: "images/mozzarella-sticks.jpg" },
+    { id: "s1", name: "بطاطس مقلية", desc: "بطاطس مقرمشة تُقدَّم ساخنة", img: "images/fries-real.jpg",
+      sizes: [{ k: "S", label: "صغير", price: 5 }, { k: "M", label: "وسط", price: 8 }, { k: "L", label: "كبير", price: 12 }] },
+    { id: "s2", name: "بطاطس بالجبنة", desc: "بطاطس مقرمشة مغطاة بالجبنة", price: 14, img: "images/cheese-fries.jpg" },
     { id: "s3", name: "10 أجنحة دجاج", desc: "أجنحة دجاج حارة بالباربكيو", price: 20, img: "images/chicken-wings.jpg" },
     { id: "s4", name: "20 أجنحة دجاج", desc: "أجنحة دجاج حارة بالباربكيو", price: 38, img: "images/chicken-wings.jpg" },
-    { id: "s5", name: "خبز بالثوم والجبنة", desc: "خبز طازج بالثوم مغطى بالجبنة", price: 16, img: "images/garlic-bread.jpg" }
+    { id: "s5", name: "خبز بالثوم", desc: "خبز طازج بالثوم والأعشاب", price: 8, img: "images/garlic-bread.jpg" },
+    { id: "s6", name: "خبز بالثوم بالجبنة", desc: "خبز طازج بالثوم مغطى بالجبنة", price: 14, img: "images/garlic-bread-cheese.jpg" }
   ],
   salads: [
-    { id: "sl1", name: "سلطة الدجاج المشوي", desc: "خضار طازجة مع قطع دجاج مشوي", price: 20, img: "images/sandwich-club.jpg" },
-    { id: "sl2", name: "سلطة خضار", desc: "خضار طازجة موسمية", price: 15, img: "images/pizza-veggie.jpg" }
+    { id: "sl1", name: "سلطة الدجاج المشوي", desc: "خضار طازجة مع قطع دجاج مشوي", price: 20, img: "images/salad-chicken-real.jpg" },
+    { id: "sl2", name: "سلطة خضار", desc: "خس، طماطم، خيار طازجة", price: 15, img: "images/salad-garden.jpg" }
   ],
   drinks: [
     { id: "d1", name: "مياه صغير", desc: "زجاجة مياه صغيرة", price: 2, img: "images/water.jpg" },
