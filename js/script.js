@@ -33,7 +33,7 @@ const MENU = {
     { id: "ex3", name: "إضافة دجاج", price: 10, img: "images/pizza-bbq-real.jpg" }
   ],
   sandwiches: [
-    { id: "sw1", name: "ساندويش دجاج مشوي (خبز الحبة الكاملة)", desc: "صدر دجاج مشوي على خبز القمح بالشوفان", price: 20, img: "images/sandwich-healthy-chicken.webp" },
+    { id: "sw1", name: "ساندويش دجاج مشوي (خبز الحبة الكاملة)", desc: "صدر دجاج مشوي على خبز الحبة الكاملة", price: 20, img: "images/sandwich-healthy-chicken.webp" },
     { id: "sw2", name: "ساندويش دجاج مشوي", desc: "صدر دجاج مشوي طازج", price: 15, img: "images/sandwich-grilled-chicken.webp" },
     { id: "sw3", name: "همبرغر", desc: "برغر لحم بقري كلاسيكي", price: 16, img: "images/burger-beef.jpg" },
     { id: "sw4", name: "برغر بالجبنة", desc: "برغر لحم مع طبقة جبنة", price: 17, img: "images/burger-beef.jpg" },
