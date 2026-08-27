@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nader Pizza | نادر بيتزا</title>
+<meta name="description" content="Nader Pizza – ألذ بيتزا وساندويتشات، اطلب أونلاين واستلم توصيل سريع.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div class="container top-bar-inner">
+      <a href="tel:0022976660" class="top-bar-item">
+        <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1.1l-2.2 2.1z"/></svg>
+        <span>02-297-6660</span>
+      </a>
+      <a href="https://www.facebook.com/Nader.pizza/" target="_blank" rel="noopener" class="top-bar-item">
+        <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+        <span>تابعنا على فيسبوك</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#home" class="logo">
+        <img src="images/logo.jpg" alt="Nader Pizza" class="logo-mark">
+        <span class="logo-text">Nader<em>Pizza</em></span>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="#home">الرئيسية</a>
+        <a href="#menu">المنيو</a>
+        <a href="#gallery">من مطبخنا</a>
+        <a href="#about">من نحن</a>
+        <a href="#contact">تواصل معنا</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="cart-btn" id="cartBtn">
+          <svg viewBox="0 0 24 24"><path d="M7 4h-2l-1 2v1h2l3.6 7.6-1.4 2.5c-.3.6.1 1.4.8 1.4h11v-2h-10l1-2h7.5c.4 0 .7-.2.9-.6l3.2-6.9c.2-.5-.1-1-.6-1H7.4l-.8-1.7c-.1-.2-.3-.3-.6-.3zM9 21a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm9 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
+          <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home" style="background-image:url('images/hero-pizza.jpg')">
+    <div class="hero-overlay"></div>
+    <div class="container hero-inner">
+      <span class="hero-eyebrow">مطعم بيتزا · توصيل سريع</span>
+      <h1>Nader Pizza<br>ألذ بيتزا وساندويتشات في المدينة</h1>
+      <p>عجينة تُحضَّر طازجة يوميًا، مكونات مختارة بعناية، وشوي على الطريقة التقليدية. اطلب أونلاين واستلم أوردرك سخنًا.</p>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn btn-primary">اطلب الآن</a>
+        <a href="tel:0022976660" class="btn btn-outline-light">اتصل للطلب</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features strip -->
+  <section class="features">
+    <div class="container features-grid">
+      <div class="feature">
+        <svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <div>
+          <h4>مكونات طازجة</h4>
+          <p>نختار مكوناتنا يوميًا بعناية فائقة</p>
+        </div>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24"><path d="M13 3 4 14h6l-1 7 9-11h-6z"/></svg>
+        <div>
+          <h4>توصيل سريع</h4>
+          <p>أوردرك يوصلك في أسرع وقت ممكن</p>
+        </div>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24"><path d="M12 21s-8-4.5-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-8 11-8 11-.5.3-1.5.3-2 0z"/></svg>
+        <div>
+          <h4>صنع بحب</h4>
+          <p>وصفات مدروسة تُحضّر بعناية لكل طلب</p>
+        </div>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+        <div>
+          <h4>جودة مضمونة</h4>
+          <p>معايير ثابتة في كل طبق نقدمه</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section class="menu" id="menu">
+    <div class="container">
+      <span class="section-kicker">المنيو</span>
+      <h2 class="section-title">اختر طلبك</h2>
+
+      <div class="menu-tabs" id="menuTabs">
+        <button class="tab-btn active" data-cat="pizza">بيتزا</button>
+        <button class="tab-btn" data-cat="sandwiches">ساندويتشات</button>
+        <button class="tab-btn" data-cat="sides">مقبلات</button>
+        <button class="tab-btn" data-cat="salads">سلطات</button>
+        <button class="tab-btn" data-cat="drinks">مشروبات</button>
+      </div>
+
+      <div class="menu-grid" id="menuGrid"></div>
+
+      <div class="menu-scan-link">
+        <a href="images/menu-board.jpg" target="_blank" rel="noopener">شاهد صورة قائمة الأسعار الكاملة</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <span class="section-kicker">من مطبخنا</span>
+      <h2 class="section-title">لحظات حقيقية من Nader Pizza</h2>
+      <div class="gallery-grid" id="galleryGrid"></div>
+      <div class="gallery-cta">
+        <a href="https://www.facebook.com/Nader.pizza/photos" target="_blank" rel="noopener" class="btn btn-outline">شاهد المزيد على فيسبوك</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container about-inner">
+      <div class="about-image">
+        <img src="images/gallery/fb-2.jpg" alt="Nader Pizza">
+      </div>
+      <div class="about-text">
+        <span class="section-kicker">من نحن</span>
+        <h2 class="section-title section-title-start">Nader Pizza</h2>
+        <p>
+          نقدم ألذ أنواع البيتزا والساندويتشات المحضّرة يوميًا من مكونات طازجة،
+          مع اهتمام بأدق التفاصيل من العجينة وحتى التغليف، عشان توصلك وجبتك
+          سخنة ولذيذة زي ما لو كنت بتاكلها عندنا.
+        </p>
+        <ul class="about-list">
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+            عجينة طازجة تُحضّر يوميًا
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+            توصيل سريع لجميع المناطق
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>
+            أسعار مناسبة لكل العائلة
+          </li>
+        </ul>
+        <a href="#menu" class="btn btn-primary">شاهد المنيو</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <span class="section-kicker">تواصل معنا</span>
+      <h2 class="section-title">اطلب الآن أو تواصل معنا</h2>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <a href="tel:0022976660" class="contact-card">
+            <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1.1l-2.2 2.1z"/></svg>
+            <div>
+              <h4>اتصل بنا</h4>
+              <span dir="ltr">02-297-6660</span>
+            </div>
+          </a>
+          <a href="https://www.facebook.com/Nader.pizza/" target="_blank" rel="noopener" class="contact-card">
+            <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+            <div>
+              <h4>فيسبوك</h4>
+              <span>Nader.pizza</span>
+            </div>
+          </a>
+          <div class="contact-card">
+            <svg viewBox="0 0 24 24"><path d="M12 21s-6.7-5.6-9.4-9.8C.6 8 1.6 4.4 4.9 3.3 7 2.6 9 3.4 10.4 5c.5.6 1.1 1.5 1.6 2.3.5-.8 1.1-1.7 1.6-2.3C15 3.4 17 2.6 19.1 3.3c3.3 1.1 4.3 4.7 2.3 7.9C18.7 15.4 12 21 12 21z"/></svg>
+            <div>
+              <h4>نتشرف بخدمتكم</h4>
+              <span>يوميًا · توصيل سريع</span>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm">
+          <input type="text" placeholder="الاسم" required>
+          <input type="tel" placeholder="رقم التليفون" required>
+          <textarea placeholder="رسالتك" rows="4" required></textarea>
+          <button type="submit" class="btn btn-primary btn-block">إرسال</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-text light"><img src="images/logo.jpg" alt="Nader Pizza" class="logo-mark">Nader<em>Pizza</em></span>
+        <p>ألذ بيتزا وساندويتشات، بنكهة لا تُنسى.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#menu">المنيو</a>
+        <a href="#gallery">من مطبخنا</a>
+        <a href="#about">من نحن</a>
+        <a href="#contact">تواصل معنا</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.facebook.com/Nader.pizza/" target="_blank" rel="noopener" aria-label="فيسبوك">
+          <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+        </a>
+        <a href="tel:0022976660" aria-label="اتصال">
+          <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.3 1.1l-2.2 2.1z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Nader Pizza. جميع الحقوق محفوظة.</div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>سلة الطلبات</h3>
+      <button id="closeCart" aria-label="إغلاق">
+        <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="empty-cart" id="emptyCartMsg">السلة فاضية حاليًا</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>الإجمالي</span>
+        <span id="cartTotal">0 ₪</span>
+      </div>
+      <button class="btn btn-primary btn-block" id="checkoutBtn">إتمام الطلب</button>
+    </div>
+  </aside>
+
+  <!-- Checkout Modal -->
+  <div class="modal-overlay" id="checkoutOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>بيانات الطلب</h3>
+        <button id="closeCheckout" aria-label="إغلاق">
+          <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+      </div>
+      <form id="checkoutForm">
+        <label>الاسم الكامل
+          <input type="text" name="name" required>
+        </label>
+        <label>رقم التليفون
+          <input type="tel" name="phone" required pattern="^[0-9+ ]{8,15}$">
+        </label>
+        <label>العنوان بالتفصيل
+          <textarea name="address" rows="3" required></textarea>
+        </label>
+        <label>ملاحظات (اختياري)
+          <textarea name="notes" rows="2"></textarea>
+        </label>
+        <label>طريقة الدفع
+          <select name="payment">
+            <option value="نقدي عند الاستلام">نقدي عند الاستلام</option>
+            <option value="محفظة إلكترونية">محفظة إلكترونية</option>
+          </select>
+        </label>
+        <div class="modal-summary" id="modalSummary"></div>
+        <button type="submit" class="btn btn-primary btn-block">تأكيد الطلب عبر واتساب</button>
+        <p class="modal-alt">أو اتصل بنا مباشرة على <a href="tel:0022976660" dir="ltr">02-297-6660</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
