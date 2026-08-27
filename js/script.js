@@ -2,6 +2,13 @@
 const RESTAURANT_WHATSAPP = "970599377881";
 const CURRENCY = "₪";
 
+// ==== إعدادات Supabase (لتسجيل الطلبات) ====
+const SUPABASE_URL = "https://wztvesdbnxutmsxiybkn.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind6dHZlc2Ribnh1dG1zeGl5YmtuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc4NTMyMzksImV4cCI6MjEwMzQyOTIzOX0.cjnWGKRD792N5AWu8iIQsRoOhfZU7RHZHSxEWCdbeeA";
+const supabaseClient = window.supabase
+  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+  : null;
+
 // ==== بيانات المنيو (حسب منيو المطعم الفعلي) ====
 const MENU = {
   pizza: [
@@ -74,7 +81,7 @@ const GALLERY = [
 ];
 
 // ==== حالة السلة ====
-let cart = JSON.parse(localStorage.getItem("naderPizzaCart") || "[]");
+let cart = JSON.parse(localStorage.getItem("naderPizzaCart") || "[]").map(c => ({ ...c, key: c.key || c.id }));
 
 // ==== عناصر DOM ====
 const menuGrid = document.getElementById("menuGrid");
@@ -133,6 +140,7 @@ function renderMenu(category) {
       <div class="menu-item-body">
         <h4>${item.name}</h4>
         ${item.desc ? `<p class="desc">${item.desc}</p>` : ""}
+        ${!item.unavailable ? `<input type="text" class="item-note" placeholder="ملاحظة:">` : ""}
         ${priceBlock(item)}
       </div>
     `;
@@ -178,13 +186,19 @@ menuGrid.addEventListener("click", e => {
 
   if (addBtn) {
     const item = findItem(addBtn.dataset.id);
-    addToCart({ id: item.id, name: item.name, price: item.price, img: item.img });
+    const noteInput = addBtn.closest(".menu-item").querySelector(".item-note");
+    const note = noteInput ? noteInput.value.trim() : "";
+    addToCart({ id: item.id, name: item.name, price: item.price, img: item.img, note });
+    if (noteInput) noteInput.value = "";
   }
 
   if (sizeBtn) {
     const item = findItem(sizeBtn.dataset.id);
     const size = item.sizes.find(s => s.k === sizeBtn.dataset.size);
-    addToCart({ id: `${item.id}-${size.k}`, name: `${item.name} (${size.label})`, price: size.price, img: item.img });
+    const noteInput = sizeBtn.closest(".menu-item").querySelector(".item-note");
+    const note = noteInput ? noteInput.value.trim() : "";
+    addToCart({ id: `${item.id}-${size.k}`, name: `${item.name} (${size.label})`, price: size.price, img: item.img, note });
+    if (noteInput) noteInput.value = "";
   }
 });
 
@@ -216,30 +230,35 @@ function saveCart() {
 }
 
 function addToCart(item) {
-  const existing = cart.find(c => c.id === item.id);
-  if (existing) {
-    existing.qty += 1;
+  if (item.note) {
+    const key = `${item.id}-${Date.now()}-${Math.random().toString(36).slice(2, 6)}`;
+    cart.push({ ...item, qty: 1, key });
   } else {
-    cart.push({ ...item, qty: 1 });
+    const existing = cart.find(c => c.id === item.id && !c.note);
+    if (existing) {
+      existing.qty += 1;
+    } else {
+      cart.push({ ...item, qty: 1, key: item.id });
+    }
   }
   saveCart();
   renderCart();
   showToast(`تمت إضافة "${item.name}" للسلة`);
 }
 
-function changeQty(id, delta) {
-  const item = cart.find(c => c.id === id);
+function changeQty(key, delta) {
+  const item = cart.find(c => c.key === key);
   if (!item) return;
   item.qty += delta;
   if (item.qty <= 0) {
-    cart = cart.filter(c => c.id !== id);
+    cart = cart.filter(c => c.key !== key);
   }
   saveCart();
   renderCart();
 }
 
-function removeItem(id) {
-  cart = cart.filter(c => c.id !== id);
+function removeItem(key) {
+  cart = cart.filter(c => c.key !== key);
   saveCart();
   renderCart();
 }
@@ -267,14 +286,15 @@ function renderCart() {
       <div class="cart-item-img"><img src="${item.img}" alt="${item.name}"></div>
       <div class="cart-item-info">
         <h5>${item.name}</h5>
+        ${item.note ? `<p class="cart-item-note">📝 ${item.note}</p>` : ""}
         <span>${item.price} ${CURRENCY}</span>
       </div>
       <div class="qty-controls">
-        <button class="dec" data-id="${item.id}">-</button>
+        <button class="dec" data-id="${item.key}">-</button>
         <span>${item.qty}</span>
-        <button class="inc" data-id="${item.id}">+</button>
+        <button class="inc" data-id="${item.key}">+</button>
       </div>
-      <span class="remove-item" data-id="${item.id}">${TRASH_ICON}</span>
+      <span class="remove-item" data-id="${item.key}">${TRASH_ICON}</span>
     `;
     cartItemsEl.appendChild(row);
   });
@@ -324,7 +344,7 @@ checkoutOverlay.addEventListener("click", e => {
 });
 
 function renderModalSummary() {
-  const lines = cart.map(i => `${i.name} × ${i.qty} = ${i.price * i.qty} ${CURRENCY}`);
+  const lines = cart.map(i => `${i.name} × ${i.qty} = ${i.price * i.qty} ${CURRENCY}${i.note ? ` (${i.note})` : ""}`);
   modalSummary.innerHTML = lines.join("<br>") +
     `<div class="summary-total">الإجمالي: ${cartTotal()} ${CURRENCY}</div>`;
 }
@@ -348,11 +368,26 @@ checkoutForm.addEventListener("submit", e => {
   message += `تفاصيل الطلب:\n`;
   cart.forEach(item => {
     message += `- ${item.name} × ${item.qty} = ${item.price * item.qty} ${CURRENCY}\n`;
+    if (item.note) message += `  ملاحظة: ${item.note}\n`;
   });
   message += `\nالإجمالي: ${cartTotal()} ${CURRENCY}`;
 
   const waUrl = `https://wa.me/${RESTAURANT_WHATSAPP}?text=${encodeURIComponent(message)}`;
   window.open(waUrl, "_blank");
+
+  if (supabaseClient) {
+    supabaseClient.from("orders").insert({
+      customer_name: name,
+      phone,
+      address,
+      notes,
+      payment_method: payment,
+      items: cart,
+      total: cartTotal()
+    }).then(({ error }) => {
+      if (error) console.error("Supabase order log failed:", error);
+    });
+  }
 
   cart = [];
   saveCart();
