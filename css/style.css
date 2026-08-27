@@ -562,12 +562,15 @@ a.contact-card:hover { border-color: var(--primary); }
   font-size: .85rem;
   color: #888;
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
-.footer-credit { font-size: .8rem; color: #777; }
-.footer-credit a { color: #aaa; font-weight: 700; transition: color .2s; }
+.footer-credit { color: #999; }
+.footer-credit a { color: #ccc; font-weight: 700; transition: color .2s; }
 .footer-credit a:hover { color: var(--primary); }
+.footer-sep { color: #555; }
 
 /* Cart Drawer */
 .cart-overlay, .modal-overlay {
